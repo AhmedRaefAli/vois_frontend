@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: red;
+}
+/* Logo styles */
+/* .header__logo img {
+  width: 100px;
+} */
+/* Navigation styles */
+.header__nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.header__nav li {
+  display: inline-block;
+  margin-right: 10px;
+
+}
+.header__nav a {
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  
+}
+
+.header__nav a:hover {
+  background-color: gray;
+}
+/* Actions styles */
+.header__actions button {
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+.header__create-task-btn {
+  background-color: white;
+  color: red;
+  border: none;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.header__sidebar-toggle {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
