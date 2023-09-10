@@ -193,7 +193,6 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-      <h1>{`Welcome ${data.name}! This is your tasks List`}</h1>
       {/* Update Task Form */}
       {selectedTask && (
         <div className="update-task-form">

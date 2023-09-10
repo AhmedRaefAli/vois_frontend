@@ -5,7 +5,7 @@ import "./styles.css";
 const TaskForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [assignOnId, setAssignOnId] = useState(1);
+  const [assignOnId, setAssignOnId] = useState(3);
   const [users, setUsers] = useState([
     {
       id: 3,
