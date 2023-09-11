@@ -96,7 +96,7 @@ const Table = () => {
   ]);
 
   const [selectedTask, setSelectedTask] = useState(null);
-  const [taskHistory, setStaskHistory] = useState(null);
+  const [taskHistory, setTaskHistory] = useState(null);
   const [newStatus, setNewStatus] = useState("");
   const [assignOnId, setAssignOnId] = useState(3);
   const [error, setError] = useState(null); // State variable for error message
@@ -124,6 +124,10 @@ const Table = () => {
     setSelectedTask(task);
   };
 
+  const handelShowHistory = (task) => {
+    setTaskHistory(task);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -137,6 +141,7 @@ const Table = () => {
         ...selectedTask,
         statusId: +newStatus,
         assignOnId: +assignOnId,
+        updaterId: 3,
       };
       console.log(updatedTask);
       delete updatedTask["taskHistory"];
@@ -183,7 +188,9 @@ const Table = () => {
               <td>{item.description}</td>
               <td style={{ color: item.status.color }}>{item.status.name}</td>
               <td>
-                {item.taskHistory ? JSON.stringify(item.taskHistory) : null}
+                <button onClick={() => handelShowHistory(item.taskHistory)}>
+                  show task history
+                </button>
               </td>
               <td>
                 <button onClick={() => handleUpdateTask(item)}>
@@ -196,9 +203,7 @@ const Table = () => {
       </table>
       {/* Update Task Form */}
       {selectedTask && (
-        <div
-          className={`update-task-form ${selectedTask ? "show" : ""}`}
-        >
+        <div className={`update-task-form ${selectedTask ? "show" : ""}`}>
           {error && <div className="error-message">{error}</div>}{" "}
           {/* Render error message */}
           <form onSubmit={handleSubmit} className="form" onClick={() => {}}>
@@ -240,6 +245,33 @@ const Table = () => {
             </div>
             <button type="submit">Update</button>
           </form>
+        </div>
+      )}
+      {taskHistory && (
+        <div>
+          <h1>Details of task history</h1>
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>title</th>
+                <th>description</th>
+                <th>status</th>
+                <th>assignOnId</th>
+                <th>updaterId</th>
+              </tr>
+            </thead>
+            <tbody>
+              {taskHistory.map((history) => (
+                <tr key={history.id}>
+                  <td>{history.title}</td>
+                  <td>{history.description}</td>
+                  <td style={{ color: history.statusId.color }}>{history.statusId.name}</td>
+                  <td>{history.assignOnId}</td>
+                  <td>{history.updaterId}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
