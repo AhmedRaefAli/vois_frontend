@@ -96,6 +96,7 @@ const Table = () => {
   ]);
 
   const [selectedTask, setSelectedTask] = useState(null);
+  const [taskHistory, setStaskHistory] = useState(null);
   const [newStatus, setNewStatus] = useState("");
   const [assignOnId, setAssignOnId] = useState(3);
   const [error, setError] = useState(null); // State variable for error message
@@ -197,15 +198,15 @@ const Table = () => {
       {selectedTask && (
         <div
           className={`update-task-form ${selectedTask ? "show" : ""}`}
-          // onClick={() => setSelectedTask(null)}
         >
-          <h2>Update Task: {selectedTask.title}</h2>
           {error && <div className="error-message">{error}</div>}{" "}
           {/* Render error message */}
           <form onSubmit={handleSubmit} className="form" onClick={() => {}}>
             <button className="exit" onClick={() => setSelectedTask(null)}>
               close
             </button>
+            <h2>Update Task: {selectedTask.title}</h2>
+
             <div className="form-group">
               <label htmlFor="status">Status:</label>
               <select
