@@ -96,6 +96,54 @@
   border-radius: 0 4px 4px 0;
 }
 
+.update-task-form {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #948f8f;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.update-task-form.show {
+  display: block;
+}
+
+.update-task-form.show::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 500;
+}
+
+.form{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 50px;
+  z-index: 999;
+  padding: 100px;
+}
+
+.update-task-form .exit{
+  color: white;
+  background-color: red;
+  border-color: red;
+  border :#555;
+  border-radius: 50 50px 50px 50;
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  margin: 10px;
+}
 /* Responsive Styles */
 
 /* Small screens */
@@ -103,12 +151,12 @@
   .table-container {
     overflow-x: auto;
   }
-  
+
   .data-table {
     display: block;
     width: 100%;
   }
-  
+
   .data-table thead,
   .data-table tbody,
   .data-table tr,
@@ -117,27 +165,27 @@
     display: block;
     width: 100%;
   }
-  
+
   .data-table tr {
     margin-bottom: 10px;
   }
-  
+
   .data-table th,
   .data-table td {
     text-align: center;
     white-space: nowrap;
     overflow-x: auto;
   }
-  
+
   .data-table th {
     height: 40px;
   }
-  
+
   .data-table td {
     height: 40px;
     border-bottom: none;
   }
-  
+
   .data-table td:before {
     content: attr(data-label);
     float: left;
@@ -152,11 +200,11 @@
   .table-container {
     overflow-x: auto;
   }
-  
+
   .data-table {
     width: 100%;
   }
-  
+
   .data-table th,
   .data-table td {
     text-align: left;

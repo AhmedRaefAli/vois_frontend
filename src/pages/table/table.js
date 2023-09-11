@@ -137,7 +137,7 @@ const Table = () => {
         statusId: +newStatus,
         assignOnId: +assignOnId,
       };
-      console.log(updatedTask)
+      console.log(updatedTask);
       delete updatedTask["taskHistory"];
       await axios.patch(
         `http://localhost:3000/task/${updatedTask.id}`,
@@ -155,7 +155,7 @@ const Table = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name,value)
+    console.log(name, value);
     if (name === "status") setNewStatus(value);
     else if (name === "assignOnId") setAssignOnId(Number(value));
   };
@@ -195,16 +195,23 @@ const Table = () => {
       </table>
       {/* Update Task Form */}
       {selectedTask && (
-        <div className="update-task-form">
+        <div
+          className={`update-task-form ${selectedTask ? "show" : ""}`}
+          // onClick={() => setSelectedTask(null)}
+        >
           <h2>Update Task: {selectedTask.title}</h2>
-          {error && <div className="error-message">{error}</div>} {/* Render error message */}  
-          <form onSubmit={handleSubmit}>
+          {error && <div className="error-message">{error}</div>}{" "}
+          {/* Render error message */}
+          <form onSubmit={handleSubmit} className="form" onClick={() => {}}>
+            <button className="exit" onClick={() => setSelectedTask(null)}>
+              close
+            </button>
             <div className="form-group">
               <label htmlFor="status">Status:</label>
               <select
                 id="status"
                 name="status"
-                value={newStatus}
+                value={selectedTask.status.id}
                 onChange={handleChange}
               >
                 <option value="">Select status</option>
@@ -220,7 +227,7 @@ const Table = () => {
               <label>Assign On</label>
               <select
                 name="assignOnId"
-                value={assignOnId}
+                value={selectedTask.assignOnId}
                 onChange={handleChange}
               >
                 {users.map((user) => (
