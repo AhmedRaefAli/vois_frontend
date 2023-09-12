@@ -16,8 +16,6 @@ function App() {
           <Route path="/create-task" element={<TaskForm />} />
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Home />} />
-          {/* <Route path="/create-task" element={<About />} /> 
-          <Route path="/update-task" element={<About />} />  */}
         </Routes>
       </BrowserRouter>
     </div>

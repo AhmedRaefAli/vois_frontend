@@ -1,14 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import voisLogo from "../../resources/_VOIS.jpeg";
 import "./style.css";
 
 const Header = () => {
   return (
     <header className="header">
-      {/* <div className="header__logo">
-        <img src={voisLogo} alt="Vodafone Logo" />
-      </div> */}
       <nav className="header__nav">
         <ul>
           <li>

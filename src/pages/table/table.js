@@ -7,113 +7,31 @@ const Table = () => {
     name: "Bob Johnson",
     email: "bob@example.com",
     myTasks: [
-      {
-        title: "bank masr",
-        id: "1",
-        description: "active",
-        status: {
-          name: "todo",
-        },
-      },
-      {
-        title: "bank cairo",
-        id: "2",
-        description: "inactive",
-        status: {
-          name: "todo",
-        },
-      },
-      {
-        title: "bank cib",
-        id: "3",
-        description: "active",
-        status: {
-          name: "todo",
-        },
-      },
-      {
-        title: "bank cib",
-        id: "4",
-        description: "active",
-        status: {
-          name: "todo",
-        },
-      },
-      {
-        title: "bank cib",
-        id: "5",
-        description: "active",
-        status: {
-          name: "todo",
-        },
-      },
-      {
-        title: "bank cib",
-        id: "6",
-        description: "active",
-        status: "123456",
-      },
-      {
-        title: "bank cib",
-        id: "9",
-        description: "active",
-        status: {
-          name: "todo",
-        },
-      },
-      {
-        title: "bank cib",
-        id: "10",
-        description: "active",
-        status: {
-          name: "todo",
-        },
-      },
-      {
-        title: "bank cib",
-        id: "11",
-        description: "active",
-        status: {
-          name: "todo",
-        },
-      },
     ],
   });
 
   const [users, setUsers] = useState([
-    {
-      id: 3,
-      createdAt: "2023-09-07T10:14:30.000Z",
-      updatedAt: "2023-09-07T10:14:30.000Z",
-      deletedAt: null,
-      name: "Bob Johnson",
-      email: "bob@example.com",
-      myTasks: [
-        // Task data...
-      ],
-    },
-    // Other users...
+    
   ]);
 
   const [selectedTask, setSelectedTask] = useState(null);
   const [taskHistory, setTaskHistory] = useState(null);
   const [newStatus, setNewStatus] = useState("");
   const [assignOnId, setAssignOnId] = useState(3);
-  const [error, setError] = useState(null); // State variable for error message
-
+  const [error, setError] = useState(null); 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/user/3"); // Replace with your API endpoint
+      const response = await axios.get("http://localhost:3000/user/3"); 
       setData(response.data);
     } catch (error) {
       console.log(error);
     }
     try {
-      const response = await axios.get("http://localhost:3000/user"); // Replace with your API endpoint
+      const response = await axios.get("http://localhost:3000/user"); 
       setUsers(response.data);
     } catch (error) {
       console.log(error);
@@ -150,10 +68,10 @@ const Table = () => {
       fetchData();
       setSelectedTask(null);
       setNewStatus("");
-      setError(null); // Clear any previous errors
+      setError(null); 
     } catch (error) {
       console.log(error);
-      setError("invalid update task transaction"); // Set the error message
+      setError("invalid update task transaction"); 
     }
   };
 

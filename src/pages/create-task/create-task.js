@@ -35,7 +35,7 @@ const TaskForm = () => {
     const taskData = {
       title,
       description,
-      creatorId: 3, // if authentication exist will be set from there
+      creatorId: 3, 
       assignOnId,
       statusId: 1,
     };
@@ -57,7 +57,7 @@ const TaskForm = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/user"); // Replace with your API endpoint
+      const response = await axios.get("http://localhost:3000/user"); 
       setUsers(response.data);
     } catch (error) {
     }
