@@ -136,14 +136,12 @@ const Table = () => {
     }
 
     try {
-      console.log(newStatus);
       const updatedTask = {
         ...selectedTask,
         statusId: +newStatus,
         assignOnId: +assignOnId,
         updaterId: 3,
       };
-      console.log(updatedTask);
       delete updatedTask["taskHistory"];
       await axios.patch(
         `http://localhost:3000/task/${updatedTask.id}`,
@@ -161,7 +159,6 @@ const Table = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     if (name === "status") setNewStatus(value);
     else if (name === "assignOnId") setAssignOnId(Number(value));
   };
@@ -201,7 +198,6 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-      {/* Update Task Form */}
       {selectedTask && (
         <div className={`update-task-form ${selectedTask ? "show" : ""}`}>
           {error && <div className="error-message">{error}</div>}{" "}

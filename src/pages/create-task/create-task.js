@@ -43,7 +43,6 @@ const TaskForm = () => {
     axios
       .post("http://localhost:3000/task", taskData)
       .then((response) => {
-        console.log(response.data);
         setError("");
       })
       .catch((error) => {
@@ -61,7 +60,6 @@ const TaskForm = () => {
       const response = await axios.get("http://localhost:3000/user"); // Replace with your API endpoint
       setUsers(response.data);
     } catch (error) {
-      console.log(error);
     }
   };
 

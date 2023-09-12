@@ -8,7 +8,6 @@ const UpdateTaskForm = ({ selectedTask, users }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     if (name === "status") setNewStatus(value);
     else if (name === "assignOnId") setAssignOnId(Number(value));
   };
@@ -21,13 +20,11 @@ const UpdateTaskForm = ({ selectedTask, users }) => {
     }
 
     try {
-      console.log(newStatus);
       const updatedTask = {
         ...selectedTask,
         statusId: +newStatus,
         assignOnId: +assignOnId,
       };
-      console.log(updatedTask);
       delete updatedTask["taskHistory"];
       await axios.patch(
         `http://localhost:3000/task/${updatedTask.id}`,
