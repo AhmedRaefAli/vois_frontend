@@ -13,7 +13,7 @@ class Home extends Component {
         <div className="content">
           <h1 className="welcome-text">Welcome to _Vois Website!</h1>
           <p className="description">
-            Explore our amazing manage your tasks and update status.
+             manage your tasks and update status.
           </p>
         </div>
       </div>
